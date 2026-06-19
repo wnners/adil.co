@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>adil.co — Adil Kairzhanov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#111111;
+    --muted:#5b5b5b;
+    --pill-bg:#e2e2e2;
+    --pill-text:#222222;
+    --btn-bg:#a3a3a3;
+    --btn-bg-hover:#878787;
+    --line:#e6e6e6;
+    --brand-text:#9a9a9a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',Helvetica,Arial,sans-serif;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 48px;
+    border-bottom:1px solid var(--line);
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:800;
+    font-size:20px;
+  }
+  .logo .sigma{font-size:26px;line-height:1;}
+  nav{display:flex;gap:28px;}
+  nav a{
+    font-size:14px;
+    color:var(--muted);
+    font-weight:500;
+  }
+  nav a.active{
+    color:var(--ink);
+    font-weight:700;
+  }
+  nav a:hover{color:var(--ink);}
+
+  main{padding:0 48px;}
+
+  .hero{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:48px;
+    padding:56px 0 64px;
+    align-items:start;
+  }
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:24px;
+  }
+  .tag{
+    background:var(--pill-bg);
+    color:var(--pill-text);
+    padding:8px 18px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+  }
+  .name{
+    font-size:48px;
+    font-weight:800;
+    margin:0 0 28px;
+    letter-spacing:-0.5px;
+  }
+  .skill-category{margin-bottom:22px;}
+  .skill-category h3{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:15px;
+    font-weight:700;
+    margin:0 0 10px;
+  }
+  .badge-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+  .badge-row img{height:26px;}
+
+  .contact-block{margin-top:32px;}
+  .contact-label{
+    font-size:24px;
+    font-weight:800;
+    margin:0 0 14px;
+  }
+  .btn-pill{
+    display:inline-block;
+    background:var(--btn-bg);
+    color:#1a1a1a;
+    font-weight:800;
+    font-size:20px;
+    padding:14px 48px;
+    border-radius:8px;
+    transition:background 0.2s ease;
+  }
+  .btn-pill:hover{background:var(--btn-bg-hover);}
+
+  .photo-collage{
+    position:relative;
+    width:100%;
+    max-width:480px;
+    height:420px;
+    margin-left:auto;
+  }
+  .photo-collage img{
+    position:absolute;
+    object-fit:cover;
+    border-radius:14px;
+    background:#cfcfcf;
+  }
+  .photo-main{
+    left:0;
+    top:30px;
+    width:62%;
+    height:78%;
+  }
+  .photo-small{
+    right:0;
+    top:0;
+    width:32%;
+    height:32%;
+  }
+  .photo-bottom{
+    right:4%;
+    bottom:0;
+    width:44%;
+    height:54%;
+  }
+
+  .about-section{
+    padding:40px 0 60px;
+    border-top:1px solid var(--line);
+  }
+  .about-section h2{
+    font-size:40px;
+    font-weight:800;
+    margin:0 0 24px;
+  }
+  .about-section p{
+    font-size:20px;
+    font-weight:600;
+    line-height:1.5;
+    margin:0 0 18px;
+    max-width:780px;
+  }
+  .about-section p span.indent{
+    display:block;
+    margin-left:40px;
+  }
+
+  .brands{
+    padding:32px 0;
+    border-top:1px solid var(--line);
+    overflow:hidden;
+  }
+  .marquee{
+    display:flex;
+    width:max-content;
+    animation:scroll 28s linear infinite;
+  }
+  .marquee:hover{animation-play-state:paused;}
+  .marquee-group{
+    display:flex;
+    align-items:center;
+    gap:48px;
+    padding-right:48px;
+  }
+  .marquee-group span{
+    font-size:18px;
+    font-weight:700;
+    color:var(--brand-text);
+    white-space:nowrap;
+  }
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:32px 48px 40px;
+  }
+  .footer-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    padding-bottom:24px;
+  }
+  .footer-sigma{font-size:24px;font-weight:800;}
+  .footer-contacts{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .footer-contacts a:hover{color:var(--ink);}
+  .footer-brand{
+    font-size:20px;
+    font-weight:800;
+    margin:8px 0 16px;
+  }
+  .socials{
+    display:flex;
+    gap:14px;
+  }
+  .social-icon{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    font-weight:700;
+    color:var(--muted);
+    transition:all 0.2s ease;
+  }
+  .social-icon:hover{
+    color:#fff;
+    background:var(--ink);
+    border-color:var(--ink);
+  }
+
+  @media (max-width:900px){
+    header{padding:16px 24px;}
+    nav{gap:16px;flex-wrap:wrap;}
+    main{padding:0 24px;}
+    .hero{grid-template-columns:1fr;padding:32px 0 40px;}
+    .photo-collage{margin:32px auto 0;max-width:360px;height:340px;}
+    .name{font-size:36px;}
+    .about-section h2{font-size:30px;}
+    .about-section p{font-size:17px;}
+    footer{padding:24px 24px 32px;}
+  }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <div class="logo"><span class="sigma">&Sigma;</span>adil.co</div>
+  <nav>
+    <a href="#top" class="active">About</a>
+    <a href="#skills">Products</a>
+    <a href="#contact">Contact</a>
+    <a href="#">Community</a>
+    <a href="#">Resources</a>
+    <a href="#">Pricing</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-left">
+      <div class="tags">
+        <span class="tag">Developer</span>
+        <span class="tag">CEO</span>
+        <span class="tag">Full-stack</span>
+        <span class="tag">Forbes 30 under 30</span>
+        <span class="tag">5 languages</span>
+        <span class="tag">100kg Bench Press</span>
+        <span class="tag">UI/UX</span>
+      </div>
+
+      <h1 class="name">Adil Kairzhanov</h1>
+
+      <div id="skills">
+        <div class="skill-category">
+          <h3>📘 Programming Languages</h3>
+          <div class="badge-row">
+            <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+            <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+            <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" alt="Kotlin">
+            <img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white" alt="Swift">
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🌐 Frontend Development</h3>
+          <div class="badge-row">
+            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+            <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+            <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap">
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>⚙️ Backend Development</h3>
+          <div class="badge-row">
+            <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
+            <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+            <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot">
+            <img src="https://img.shields.io/badge/GlassFish-0B3D91?style=for-the-badge" alt="GlassFish">
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🗄️ Databases</h3>
+          <div class="badge-row">
+            <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+            <img src="https://img.shields.io/badge/MongoDB%20Atlas-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB Atlas">
+            <img src="https://img.shields.io/badge/Microsoft%20Access-A4373A?style=for-the-badge&logo=microsoftaccess&logoColor=white" alt="Microsoft Access">
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>🧰 Tools &amp; Platforms</h3>
+          <div class="badge-row">
+            <img src="https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=androidstudio&logoColor=white" alt="Android Studio">
+            <img src="https://img.shields.io/badge/Bootstrap%20Studio-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white" alt="Bootstrap Studio">
+            <img src="https://img.shields.io/badge/MetaTrader-1A3D63?style=for-the-badge" alt="MetaTrader">
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <p class="contact-label">Contact me</p>
+        <a class="btn-pill" href="#contact">Button</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="photo-collage">
+        <img class="photo-main" src="images/photo-1.jpg" alt="Adil Kairzhanov">
+        <img class="photo-small" src="images/photo-2.jpg" alt="Adil Kairzhanov portrait">
+        <img class="photo-bottom" src="images/photo-3.jpg" alt="Adil Kairzhanov gym photo">
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>About myself</h2>
+    <p>incomplete education at Astana Polytechnic College</p>
+    <p>5 languages: Russian, Kazakh, English, Chinese and vibecode sigma male language</p>
+    <p>participation in hundreds of projects<span class="indent">CEO of several projects</span></p>
+  </section>
+
+  <section class="brands">
+    <div class="marquee">
+      <div class="marquee-group">
+        <span>H3C</span><span>Adobe</span><span>AMD</span><span>Antec</span><span>Apple</span>
+        <span>AVG</span><span>AXIS</span><span>BELKIN</span><span>Benq</span><span>Dell</span>
+        <span>hp</span><span>IBM</span><span>intel</span><span>Kingston</span><span>lenovo</span>
+      </div>
+      <div class="marquee-group">
+        <span>H3C</span><span>Adobe</span><span>AMD</span><span>Antec</span><span>Apple</span>
+        <span>AVG</span><span>AXIS</span><span>BELKIN</span><span>Benq</span><span>Dell</span>
+        <span>hp</span><span>IBM</span><span>intel</span><span>Kingston</span><span>lenovo</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="footer-row">
+    <span class="footer-sigma">&Sigma;</span>
+    <div class="footer-contacts">
+      <a href="mailto:adilkairzhanov5@gmail.com">adilkairzhanov5@gmail.com</a>
+      <a href="tel:+77719771102">+7 (771) 977 11 02</a>
+      <a href="https://github.com/wnners" target="_blank" rel="noopener">https://github.com/wnners</a>
+    </div>
+  </div>
+  <div class="footer-brand">adil.co</div>
+  <div class="socials">
+    <a class="social-icon" href="#" target="_blank" rel="noopener">X</a>
+    <a class="social-icon" href="#" target="_blank" rel="noopener">IG</a>
+    <a class="social-icon" href="#" target="_blank" rel="noopener">YT</a>
+    <a class="social-icon" href="#" target="_blank" rel="noopener">in</a>
+  </div>
+</footer>
+
+</body>
+</html>
